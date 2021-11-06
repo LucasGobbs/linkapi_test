@@ -55,6 +55,7 @@
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "mongodb": "^3.6.9",
+    "node-cron": "^3.0.0",
     "pipedrive": "^12.2.0",
     "typeorm": "^0.2.38"
   },
