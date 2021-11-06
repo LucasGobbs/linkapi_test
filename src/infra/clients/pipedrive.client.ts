@@ -1,3 +1,4 @@
+import { Deal } from '@/domain/models/deal.model'
 import env from '@/main/config/env'
 
 import * as pipedrive from 'pipedrive'
@@ -5,16 +6,6 @@ const defaultClient = pipedrive.ApiClient.instance
 const apiToken = defaultClient.authentications.api_key
 apiToken.apiKey = env.pipedrive_token
 
-export type Deal = {
-  id: number
-  title: string
-
-  currency: string
-  value: number
-
-  status: string
-  won_time?: Date
-}
 export class PipedriveClient {
   async listDeals (): Promise<Deal[]> {
     const api = new pipedrive.DealsApi()
