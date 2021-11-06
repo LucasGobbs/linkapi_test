@@ -54,8 +54,9 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
-    "typeorm": "^0.2.38",
-    "mongodb": "^3.6.9"
+    "mongodb": "^3.6.9",
+    "pipedrive": "^12.2.0",
+    "typeorm": "^0.2.38"
   },
   "_moduleAliases": {
     "@": "dist"
