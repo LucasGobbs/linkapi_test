@@ -1,3 +1,4 @@
+import { IDealReceiver } from '@/data/protocols/deal_receiver.interface'
 import { Deal } from '@/domain/models/deal.model'
 import env from '@/main/config/env'
 
@@ -6,7 +7,7 @@ const defaultClient = pipedrive.ApiClient.instance
 const apiToken = defaultClient.authentications.api_key
 apiToken.apiKey = env.pipedrive_token
 
-export class PipedriveClient {
+export class PipedriveClient implements IDealReceiver {
   async listDeals (): Promise<Deal[]> {
     const api = new pipedrive.DealsApi()
     const response = await api.getDeals()
@@ -14,7 +15,7 @@ export class PipedriveClient {
       const data = response.data
       return data.map((e) => {
         return {
-          id: e.id,
+          pipedrive_id: e.id,
           title: e.title,
           status: e.status,
           currency: e.currency,
@@ -27,9 +28,27 @@ export class PipedriveClient {
     }
   }
 
-  async listWonDeaals (): Promise<Deal[]> {
-    return (await this.listDeals()).filter((e) => {
-      return e.status === 'won'
-    })
+  async listWonDeals (): Promise<Deal[]> {
+    const api = new pipedrive.DealsApi()
+    const response = await api.getDeals({ status: 'won' })
+    if (response) {
+      const data = response.data
+      return data.map((e) => {
+        return this.mapResult(e)
+      })
+    } else {
+      return []
+    }
+  }
+
+  mapResult (data: any): Deal {
+    return {
+      pipedrive_id: data.id,
+      title: data.title,
+      status: data.status,
+      currency: data.currency,
+      value: data.value,
+      won_time: data.won_time != null ? new Date(data.won_time) : null
+    }
   }
 }
