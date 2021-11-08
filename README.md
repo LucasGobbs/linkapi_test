@@ -91,7 +91,7 @@ Bling
 <img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_vazio.png"  width="900" height="350">
 
 
-### Após a execução da Task de atualização são adicionados os Deals retornados do Pipefy
+### Após a execução da Task de atualização são adicionados os Deals retornados do Pipedrive
 
 
 
