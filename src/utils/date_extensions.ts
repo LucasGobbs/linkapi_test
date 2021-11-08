@@ -9,9 +9,9 @@ export const toISODate = (input: Date): string => {
   return input
     .toLocaleString() // dd/MM/YYYY horas
     .split(' ')[0] // dd/MM/YYYY
-    .split('/')
-    .reverse()
-    .join('-')
+    .split('/') // [dd, MM, YYYY]
+    .reverse() // [YYYY, MM, dd ]
+    .join('-') // YYYY-MM-dd
 }
 export const sameDay = (a: Date, b: Date): boolean => {
   return a.getDate() === b.getDate() &&

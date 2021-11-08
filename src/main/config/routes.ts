@@ -6,6 +6,7 @@ import { BlingClient } from '@/infra/clients/bling/bling.client'
 import { PipedriveClient } from '@/infra/clients/pipedrive.client'
 import { DailyDealRepository } from '@/infra/db/daily_deals.repository'
 import { DealRepository } from '@/infra/db/deal.repository'
+import { CleanController } from '@/presentation/controllers/deals/clean.controller'
 import { ForcedListController } from '@/presentation/controllers/deals/forcedList.controller'
 import { ListController } from '@/presentation/controllers/deals/list.controller'
 import { RefreshController } from '@/presentation/controllers/deals/refresh.controller'
@@ -34,20 +35,21 @@ export default (app: Express): void => {
   app.use('/api', router)
   router.get('/', adaptRoute(new RootController()))
 
-  // router.get('/deals/refresh', adaptRoute( new ))
-  router.get('/deals/forcedlist', adaptRoute(
-    new ForcedListController(
-      saveDailyDeals,
-      removeAllDailyDeals,
-      removeAllDeals,
-      listDailyDeals
-    )))
-
   router.get('/deals/list', adaptRoute(new ListController(
     listDailyDeals
   )))
 
   router.get('/deals/refresh', adaptRoute(new RefreshController(
     saveDailyDeals
+  )))
+  router.get('/deals/forcedlist', adaptRoute(
+    new ForcedListController(
+      saveDailyDeals,
+      listDailyDeals
+    )))
+
+  router.get('/deals/clean', adaptRoute(new CleanController(
+    removeAllDeals,
+    removeAllDailyDeals
   )))
 }

@@ -19,27 +19,26 @@ export class SaveDailyDealsService implements ISaveDailyDeals {
     const promises = []
 
     for (const deal of deals) {
-      const response = await this.saver.save(deal)
-      if (![200, 201].includes(response.status)) {
-        throw (new Error('Bling Error'))
-      }
-      promises.push(this.saveOne(deal))
+      const exists = await this.dealRepository.exists(deal.pipedrive_id)
+      if (!exists) {
+        const response = await this.saver.save(deal)
+        if (![200, 201].includes(response.status)) {
+          throw (new Error('Bling Error'))
+        }
+        promises.push(this.saveOne(deal))
 
-      // Bling limita a 3 requisições por segundo
-      await delay(333)
+        // Bling limita a 3 requisições por segundo
+        await delay(333)
+      }
     }
 
     await Promise.all(promises)
   }
 
   async saveOne (deal: Deal): Promise<void> {
-    const exists = await this.dealRepository.exists(deal.pipedrive_id)
-
-    if (!exists) {
-      await Promise.all([
-        this.dealRepository.add(deal),
-        this.dailyDealsRepository.add(deal)
-      ])
-    }
+    await Promise.all([
+      this.dealRepository.add(deal),
+      this.dailyDealsRepository.add(deal)
+    ])
   }
 }

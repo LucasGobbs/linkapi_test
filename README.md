@@ -68,6 +68,7 @@ localhost:3010/api
 | GET | /deals/list  | Faz a listagem dos Deals presentes no Banco
 | GET | /deals/forcedlist|Força uma atualização do banco, e depois faz as listagens
 | GET | /deals/refresh| Força uma atualização do banco
+| GET | /deals/clean| Faz uma limpeza do banco
 
 ## Arquitetura
 A arquitetura da API foi segundo os padrões do Clean Architecture, com certas adaptações para a falicitar o uso, como a adição de tasks na camada de Infra.
