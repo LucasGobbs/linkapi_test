@@ -71,19 +71,19 @@ A arquitetura da API foi segundo os padrões do Clean Architecture, com certas a
 
 ### Primeira execução do list
 
-Enquanto a task de atualização não for executada, nossa API está vazia
+Enquanto a task de atualização não for executada, a API está vazia
 
-O retorno do request
+Request
 
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_vazio.png"  width="700" height="350">
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_vazio.png"  width="900" height="350">
 
-O banco
+Banco
 
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/dailydeals_db_vazio.png"  width="700" height="350">
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/dailydeals_db_vazio.png"  width="900" height="350">
 
-O Bling
+Bling
 
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_vazio.png"  width="700" height="350">
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_vazio.png"  width="900" height="350">
 
 
 ### Após a execução da Task de atualização são adicionados os Deals retornados do Pipefy
@@ -91,14 +91,26 @@ O Bling
 
 
 
-O retorno do request
+Request
 
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_populado.png"  width="700" height="350">
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_populado.png"  width="900" height="350">
 
-O banco
+Banco
 
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/banco_populado.png"  width="700" height="350">
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/banco_populado.png"  width="900" height="350">
 
-O Bling
+Bling
 
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_populado.png"  width="700" height="350">
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_populado.png"  width="900" height="350">
+
+
+### Após a mudança de status de uma nova Deal para won
+
+Request
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_populado2.png"  width="900" height="350">
+
+
+Bling
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_populado2.png"  width="900" height="350">
