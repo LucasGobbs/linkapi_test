@@ -60,9 +60,14 @@ npm run up
 ```
 
 ## Rotas
-
-  
-  
+### Rota base:
+localhost:3010/api
+| Método  | Url  | Descrição |
+|--|--|--|
+| GET | / | Para testar se a API funciona 
+| GET | /deals/list  | Faz a listagem dos Deals presentes no Banco
+| GET | /deals/forcedlist|Força uma atualização do banco, e depois faz as listagens
+| GET | /deals/refresh| Força uma atualização do banco
 
 ## Arquitetura
 A arquitetura da API foi segundo os padrões do Clean Architecture, com certas adaptações para a falicitar o uso, como a adição de tasks na camada de Infra.
