@@ -15,14 +15,16 @@ export class ForcedListController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      await this.removeAllDailyDeals.removeAll()
-      await this.removeAllDeals.removeAll()
+      // await this.removeAllDailyDeals.removeAll()
+      // await this.removeAllDeals.removeAll()
 
       await this.saveDailyDeals.save()
 
       const data = await this.listDailyDeals.list()
+
       return ok(data)
     } catch (e) {
+      console.log(e)
       return serverError(e)
     }
   }

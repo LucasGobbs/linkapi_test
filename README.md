@@ -8,14 +8,14 @@ Sua integração deveria ser de modo a quando houver um mudança de **status** e
 Para isso eu fiz uma API em Node utilizando Express como framework Web,  Cron para o agendamento de tasks, Docker para a criação do ambiente, além de mongo com o driver nativo para salvar os dados.
 
 ### Funcionamento
-A API mantem salvos no banco dois tipos de dados, os Deals e os DailyDeals. E conforme a mesma está rodando, uma task é  agendada (A cada **45** segundos), para realizar uma busca na api do Pipedrive por deals com status 'won'.
+A API mantem salvos no banco dois tipos de dados, os Deals e os DailyDeals. E conforme a mesma está rodando, uma task é  agendada (A cada **5** minutos), para realizar uma busca na api do Pipedrive por deals com status 'won'.
 Com a lista, a API checa se os mesmos já foram inseridos e os salva no banco além de envia-los para o Bling.
 
 Para pegar os resultados do dia (DailyDeals), o usuário pode fazer uma requisição para listar os dados já salvos
 ```
 localhost:3010/api/deals/list
 ```
-Porem tal listagem pode estar defasada, já que a atualização é feita de 45 em 45 segundos. Para forçar a atualização dos dados da API, pode ser usada a rota
+Porem tal listagem pode estar defasada, já que a atualização é feita de 5 em 5 minutos. Para forçar a atualização dos dados da API, pode ser usada a rota
 ```java
 localhost:3010/api/deals/forcedlist
 

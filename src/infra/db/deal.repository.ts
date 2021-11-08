@@ -1,8 +1,8 @@
-import { addDeal, listDeal, update } from '@/data/protocols/deal'
+import { IDealRepository } from '@/data/protocols/deal_repository.interface'
 import { Deal } from '@/domain/models/deal.model'
 import { Mongo } from './mongo'
 
-export class DealRepository implements addDeal, listDeal, update {
+export class DealRepository implements IDealRepository {
   async add (deal: Deal): Promise<void> {
     const collection = await Mongo.getCollection('Deals')
     await collection.insertOne(deal)

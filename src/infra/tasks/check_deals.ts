@@ -6,7 +6,7 @@ export class CheckDealsTask {
 
   setup (): void {
     // A cada 10 segundos
-    cron.schedule('*/45 * * * * *', async () => {
+    cron.schedule('*/5 * * * *', async () => {
       console.log('Running Task: Updating Daily Deals List ')
       // const data = await this.receiver.listWonDeals()
       await this.dailyDealsSaver.save()
