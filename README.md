@@ -74,12 +74,31 @@ A arquitetura da API foi segundo os padrões do Clean Architecture, com certas a
 Enquanto a task de atualização não for executada, nossa API está vazia
 
 O retorno do request
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_vazio.png"  width="400" height="350">
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_vazio.png"  width="700" height="350">
 
 O banco
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/dailydeals_db_vazio.png"  width="400" height="350">
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/dailydeals_db_vazio.png"  width="700" height="350">
 
 O Bling
-<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_vazio.png"  width="400" height="350">
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_vazio.png"  width="700" height="350">
 
 
+### Após a execução da Task de atualização são adicionados os Deals retornados do Pipefy
+
+
+
+
+O retorno do request
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/request_populado.png"  width="700" height="350">
+
+O banco
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/banco_populado.png"  width="700" height="350">
+
+O Bling
+
+<img src="https://github.com/LucasGobbs/linkapi_test/blob/master/images/bling_populado.png"  width="700" height="350">
