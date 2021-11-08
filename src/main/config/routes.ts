@@ -9,7 +9,7 @@ import { DealRepository } from '@/infra/db/deal.repository'
 import { ForcedListController } from '@/presentation/controllers/deals/forcedList.controller'
 import { ListController } from '@/presentation/controllers/deals/list.controller'
 import { RefreshController } from '@/presentation/controllers/deals/refresh.controller'
-import { TestController } from '@/presentation/controllers/test.controller'
+import { RootController } from '@/presentation/controllers/root.controller'
 import { Express, Router } from 'express'
 import { adaptRoute } from '../adapters/express_route_adapter'
 
@@ -32,7 +32,7 @@ export default (app: Express): void => {
   const listDailyDeals = new ListDailyDealsService(dailyDealRepository)
 
   app.use('/api', router)
-  router.get('/test', adaptRoute(new TestController(new DailyDealRepository())))
+  router.get('/', adaptRoute(new RootController()))
 
   // router.get('/deals/refresh', adaptRoute( new ))
   router.get('/deals/forcedlist', adaptRoute(

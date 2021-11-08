@@ -10,7 +10,7 @@ export class RefreshController implements Controller {
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       await this.saveDailyDeals.save()
-      return ok({})
+      return ok('Dados atualizados')
     } catch (e) {
       return serverError(e)
     }
